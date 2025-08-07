@@ -1,0 +1,11 @@
+                                                        Documentação Linux Ubuntu 24.04 
+
+Obs: Comando sudo concede privilegio de administrador
+             apt: gerenciador de pacotes
+
+- sudo apt update
+- sudo apt upgrade
+- sudo reboot
+- sudo apt install build-essential dkms linux-headers-$(uname -r)
+  Instala: build-essencial: ferramenta para compilar código-fonte 
+           dkms: recompilador de aplicações para compatibilidade com Kernel do convidado (guest)
