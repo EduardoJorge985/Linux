@@ -29,26 +29,33 @@ apt: gerenciador de pacotes
 
 ---
 
-- Criação de uma nova pasta na máquina física.(host)
-  - Caminho: C:\VirtualBox-PastaCompartilhada
--Configuração da VM(guest)
- -Acesso à guia denominada Pasta Compartilhada
- -Criação de uma referência com o caminho C:\VirtualBox-PastaCompartilhada para acessar esta pasta pela VM
+- Criação de uma nova pasta na máquina física (host):  
+  Caminho: `C:\VirtualBox-PastaCompartilhada`
 
-- Após ligar a VM:
-  -Adicionada um novo usuário no grupo vboxsf: sudo $USER -aG vboxsf ubuntu
-  -VM reiniciada: sudo reboot
-  -Acesso ao diretório na VM que referencia a pasta criada na máquina física: ls /media
-   -Foi utilizado um comando para imprimir/gravar uma mensagem em um novo arquivo: QUAL O COMANDO PARA IMPRIMIR A MENSAGEM? COMO FOI CRIADO O ARQUIVO COM MENSAGEM? 
+- Configuração da VM (guest):  
+  - Acesse a guia denominada **Pasta Compartilhada** nas configurações da VM.  
+  - Crie uma referência para a pasta física com o caminho `C:\VirtualBox-PastaCompartilhada` para que a VM possa acessá-la.
 
-  -Testamos na máquina física se o novo arquivo criado estava lá
-   -Criamos na máquina física um segundo arquivo
+- Após ligar a VM:  
+  - Adicione o usuário atual ao grupo `vboxsf` para permitir acesso à pasta compartilhada, com o comando:  
+    `sudo usermod -aG vboxsf $USER`  
+  - Reinicie a VM para aplicar as mudanças:  
+    `sudo reboot`  
+  - Acesse o diretório na VM que referencia a pasta criada na máquina física (normalmente em `/media/sf_VirtualBox-PastaCompartilhada` ou `/media`):  
+    `ls /media`  
+  - Para imprimir/gravar uma mensagem em um novo arquivo dentro da pasta compartilhada, utilize o comando:  
+    `echo "Sua mensagem aqui" > /media/sf_VirtualBox-PastaCompartilhada/arquivo.txt`  
+    Esse comando cria um arquivo chamado `arquivo.txt` com o conteúdo especificado.
 
--Novamente na VM:
- -Utilizando um comando de leitura: qual? vim ~/.vimrc
- -Utilizamos um aplicativo de editor de texto instalado por padrão no Ubuntu para abrir o arquivo e editá-lo: qual comando? nano nome_do_arquivo
- -Baixamos um segundo aplicativo de editor de texto/código: com qual comando instalamos? 
+- Testamos na máquina física se o novo arquivo criado pela VM está presente na pasta compartilhada.  
+- Criamos na máquina física um segundo arquivo dentro da pasta compartilhada.
 
- ---
-
+- Novamente na VM:  
+  - Para leitura simples de arquivos, um comando comum é:  
+    `cat /media/sf_VirtualBox-PastaCompartilhada/nome_do_arquivo`  
+  - Para abrir e editar um arquivo usando o editor de texto padrão do Ubuntu, use:  
+    `nano nome_do_arquivo`  
+  - Para instalar um segundo editor de texto/código, como o Vim, utilize os comandos:  
+    `sudo apt update`  
+    `sudo apt install vim`
  
